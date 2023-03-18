@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -17,31 +17,39 @@ public class BoardController {
     private AnchorPane root;
 
     @FXML
-    private Pane holePane;
+    private Pane marblePane;
     private int numHoles = 120;
     private List<Boolean> occupiedList = new ArrayList<>(Collections.nCopies(numHoles, false));
+    private Circle currentMarble;
 
     public void initialize() {
         for (int i = 0; i <= numHoles; i++) {
             String id = "hole" + i;
-            Circle hole = (Circle) holePane.lookup("#" + id);
+            Circle hole = (Circle) root.lookup("#" + id);
+            placeMarbles(hole, i);
+        }
 
-            if (i < 10) {
-                createMarble(hole, i, Color.BLACK);
-            } else if (i < 20) {
-                createMarble(hole, i, Color.GREEN);
-            } else if (i < 30) {
-                createMarble(hole, i, Color.BLUE);
-            } else if (i < 40) {
-                createMarble(hole, i, Color.WHITE);
-            } else if (i < 50) {
-                createMarble(hole, i, Color.RED);
-            } else if (i < 60) {
-                createMarble(hole, i, Color.YELLOW);
-            }
+        marblePane.setOnMouseClicked(event -> {
+            resetMarbleColors();
+            currentMarble = null;
+        });
 
-            hole.setOnMouseClicked((MouseEvent event) -> {
-            });
+
+    }
+
+    private void placeMarbles(Circle hole, int i) {
+        if (i < 10) {
+            createMarble(hole, i, Color.BLACK);
+        } else if (i < 20) {
+            createMarble(hole, i, Color.GREEN);
+        } else if (i < 30) {
+            createMarble(hole, i, Color.BLUE);
+        } else if (i < 40) {
+            createMarble(hole, i, Color.WHITE);
+        } else if (i < 50) {
+            createMarble(hole, i, Color.RED);
+        } else if (i < 60) {
+            createMarble(hole, i, Color.YELLOW);
         }
     }
 
@@ -49,6 +57,34 @@ public class BoardController {
         occupiedList.set(i, true);
         Circle marble = new Circle(hole.getLayoutX(), hole.getLayoutY(), 18, color);
         marble.toFront();
-        holePane.getChildren().add(marble);
+        marblePane.getChildren().add(marble);
+        marble.setUserData(color);
+
+        marble.setOnMouseClicked(event -> {
+            if (marble != currentMarble) {
+                if (currentMarble != null) {
+                    resetMarbleColors();
+                }
+                highlightMarble(marble);
+                currentMarble = marble;
+                event.consume();
+            }
+        });
+    }
+
+    private void resetMarbleColors() {
+        for (Node node : marblePane.getChildren()) {
+            ((Circle) node).setFill((Color) ((Circle) node).getUserData());
+        }
+    }
+
+    private void highlightMarble(Circle marble) {
+        if (marble.getFill().equals(Color.BLACK)) {
+            marble.setFill(((Color) marble.getUserData()).brighter().brighter().brighter().brighter());
+        } else if (marble.getFill().equals(Color.WHITE) || marble.getFill().equals(Color.YELLOW)
+                || marble.getFill().equals(Color.BLUE) || marble.getFill().equals(Color.RED)
+                || marble.getFill().equals(Color.GREEN)) {
+            marble.setFill(((Color) marble.getUserData()).darker());
+        }
     }
 }
