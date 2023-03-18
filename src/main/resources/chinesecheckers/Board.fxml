@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.Double?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+
+<AnchorPane fx:controller="chinesecheckers.BoardController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Polygon fill="#d7b479" layoutX="600.0" layoutY="600.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+        <points>
+          <Double fx:value="-300.0" />
+          <Double fx:value="-150.0" />
+          <Double fx:value="0.0" />
+          <Double fx:value="-300.0" />
+          <Double fx:value="300.0" />
+          <Double fx:value="-150.0" />
+          <Double fx:value="300.0" />
+          <Double fx:value="150.0" />
+          <Double fx:value="0.0" />
+          <Double fx:value="300.0" />
+          <Double fx:value="-300.0" />
+          <Double fx:value="150.0" />
+        </points>
+      </Polygon>
+      <Polygon fill="#e4e442" layoutX="300.0" layoutY="900.0" opacity="0.8" points="0.0, 150.0, 300.0, 0.0, 0.0, -150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fill="#d4dedc" layoutX="900.0" layoutY="600.0" opacity="0.8" points="0.0, 150.0, 300.0, 0.0, 0.0, -150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fill="#56a34c" layoutX="300.0" layoutY="300.0" opacity="0.8" points="0.0, 150.0, 300.0, 0.0, 0.0, -150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fill="#a62d1d" layoutX="600.0" layoutY="750.0" opacity="0.8" points="0.0, 150.0, 300.0, 0.0, 300.0, 300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fill="#2a3498" layoutX="600.0" layoutY="150.0" opacity="0.8" points="0.0, 150.0, 300.0, 0.0, 300.0, 300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Polygon fill="#0c0d12" layoutY="450.0" opacity="0.8" points="0.0, 150.0, 300.0, 0.0, 300.0, 300.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Line endY="598.0" layoutX="600.0" layoutY="300.0" strokeWidth="5.0" />
+      <Line endX="600.0" endY="300.0" layoutX="300.0" layoutY="450.0" strokeWidth="5.0" />
+      <Line endX="-600.0" endY="300.0" layoutX="901.0" layoutY="450.0" strokeWidth="5.0" />
+      <Pane fx:id="holePane" prefHeight="1200.0" prefWidth="1200.0">
+         <children>
+            <Circle fx:id="hole0" fill="SADDLEBROWN" layoutX="82.0" layoutY="600.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole1" fill="SADDLEBROWN" layoutX="142.0" layoutY="625.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole2" fill="SADDLEBROWN" layoutX="142.0" layoutY="563.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole3" fill="SADDLEBROWN" layoutX="204.0" layoutY="665.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole4" fill="SADDLEBROWN" layoutX="204.0" layoutY="600.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole5" fill="SADDLEBROWN" layoutX="204.0" layoutY="538.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole6" fill="SADDLEBROWN" layoutX="268.0" layoutY="690.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole7" fill="SADDLEBROWN" layoutX="268.0" layoutY="625.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole8" fill="SADDLEBROWN" layoutX="268.0" layoutY="563.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole9" fill="SADDLEBROWN" layoutX="268.0" layoutY="502.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole10" fill="SADDLEBROWN" layoutX="337.0" layoutY="204.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole11" fill="SADDLEBROWN" layoutX="337.0" layoutY="260.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole12" fill="SADDLEBROWN" layoutX="398.0" layoutY="235.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole13" fill="SADDLEBROWN" layoutX="337.0" layoutY="325.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole14" fill="SADDLEBROWN" layoutX="398.0" layoutY="298.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole15" fill="SADDLEBROWN" layoutX="455.0" layoutY="273.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole16" fill="SADDLEBROWN" layoutX="337.0" layoutY="393.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole17" fill="SADDLEBROWN" layoutX="398.0" layoutY="358.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole18" fill="SADDLEBROWN" layoutX="455.0" layoutY="333.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole19" fill="SADDLEBROWN" layoutX="515.0" layoutY="300.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />           <Circle fx:id="hole10" fill="SADDLEBROWN" layoutX="337.0" layoutY="204.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole20" fill="SADDLEBROWN" layoutX="869.0" layoutY="198.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole21" fill="SADDLEBROWN" layoutX="813.0" layoutY="229.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole22" fill="SADDLEBROWN" layoutX="863.0" layoutY="260.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole23" fill="SADDLEBROWN" layoutX="750.0" layoutY="260.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole24" fill="SADDLEBROWN" layoutX="806.0" layoutY="298.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole25" fill="SADDLEBROWN" layoutX="863.0" layoutY="323.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole26" fill="SADDLEBROWN" layoutX="675.0" layoutY="298.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole27" fill="SADDLEBROWN" layoutX="736.0" layoutY="325.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole28" fill="SADDLEBROWN" layoutX="800.0" layoutY="358.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole29" fill="SADDLEBROWN" layoutX="863.0" layoutY="393.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole30" fill="SADDLEBROWN" layoutX="1100.0" layoutY="608.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole31" fill="SADDLEBROWN" layoutX="1050.0" layoutY="569.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole32" fill="SADDLEBROWN" layoutX="1050.0" layoutY="633.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole33" fill="SADDLEBROWN" layoutX="996.0" layoutY="538.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole34" fill="SADDLEBROWN" layoutX="996.0" layoutY="599.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole35" fill="SADDLEBROWN" layoutX="996.0" layoutY="658.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole36" fill="SADDLEBROWN" layoutX="937.0" layoutY="502.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole37" fill="SADDLEBROWN" layoutX="937.0" layoutY="563.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole38" fill="SADDLEBROWN" layoutX="937.0" layoutY="625.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole39" fill="SADDLEBROWN" layoutX="937.0" layoutY="690.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole40" fill="SADDLEBROWN" layoutX="869.0" layoutY="985.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole41" fill="SADDLEBROWN" layoutX="869.0" layoutY="926.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole42" fill="SADDLEBROWN" layoutX="813.0" layoutY="960.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole43" fill="SADDLEBROWN" layoutX="863.0" layoutY="867.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole44" fill="SADDLEBROWN" layoutX="813.0" layoutY="900.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole45" fill="SADDLEBROWN" layoutX="761.0" layoutY="926.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole46" fill="SADDLEBROWN" layoutX="863.0" layoutY="807.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole47" fill="SADDLEBROWN" layoutX="806.0" layoutY="832.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole48" fill="SADDLEBROWN" layoutX="750.0" layoutY="867.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole49" fill="SADDLEBROWN" layoutX="692.0" layoutY="901.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole50" fill="SADDLEBROWN" layoutX="337.0" layoutY="992.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole51" fill="SADDLEBROWN" layoutX="387.0" layoutY="960.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole52" fill="SADDLEBROWN" layoutX="337.0" layoutY="926.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole53" fill="SADDLEBROWN" layoutX="450.0" layoutY="935.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole54" fill="SADDLEBROWN" layoutX="398.0" layoutY="901.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole55" fill="SADDLEBROWN" layoutX="337.0" layoutY="867.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole56" fill="SADDLEBROWN" layoutX="511.0" layoutY="900.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole57" fill="SADDLEBROWN" layoutX="455.0" layoutY="867.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole58" fill="SADDLEBROWN" layoutX="398.0" layoutY="842.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole59" fill="SADDLEBROWN" layoutX="337.0" layoutY="807.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole60" fill="SADDLEBROWN" layoutX="337.0" layoutY="469.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole61" fill="SADDLEBROWN" layoutX="337.0" layoutY="527.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole62" fill="SADDLEBROWN" layoutX="337.0" layoutY="588.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole63" fill="SADDLEBROWN" layoutX="337.0" layoutY="658.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole64" fill="SADDLEBROWN" layoutX="337.0" layoutY="725.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole65" fill="SADDLEBROWN" layoutX="398.0" layoutY="435.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole66" fill="SADDLEBROWN" layoutX="398.0" layoutY="502.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole67" fill="SADDLEBROWN" layoutX="398.0" layoutY="563.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole68" fill="SADDLEBROWN" layoutX="398.0" layoutY="626.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole69" fill="SADDLEBROWN" layoutX="400.0" layoutY="700.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole70" fill="SADDLEBROWN" layoutX="398.0" layoutY="759.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole71" fill="SADDLEBROWN" layoutX="465.0" layoutY="400.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole72" fill="SADDLEBROWN" layoutX="465.0" layoutY="468.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole73" fill="SADDLEBROWN" layoutX="465.0" layoutY="527.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole74" fill="SADDLEBROWN" layoutX="465.0" layoutY="594.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole75" fill="SADDLEBROWN" layoutX="465.0" layoutY="665.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole76" fill="SADDLEBROWN" layoutX="465.0" layoutY="725.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole77" fill="SADDLEBROWN" layoutX="465.0" layoutY="792.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole78" fill="SADDLEBROWN" layoutX="536.0" layoutY="368.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole79" fill="SADDLEBROWN" layoutX="529.0" layoutY="435.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole80" fill="SADDLEBROWN" layoutX="529.0" layoutY="502.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole81" fill="SADDLEBROWN" layoutX="536.0" layoutY="569.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole82" fill="SADDLEBROWN" layoutX="536.0" layoutY="633.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole83" fill="SADDLEBROWN" layoutX="529.0" layoutY="690.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole84" fill="SADDLEBROWN" layoutX="536.0" layoutY="759.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole85" fill="SADDLEBROWN" layoutX="536.0" layoutY="832.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole86" fill="SADDLEBROWN" layoutX="600.0" layoutY="333.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole87" fill="SADDLEBROWN" layoutX="601.0" layoutY="400.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole88" fill="SADDLEBROWN" layoutX="601.0" layoutY="468.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole89" fill="SADDLEBROWN" layoutX="601.0" layoutY="538.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole90" fill="SADDLEBROWN" layoutX="601.0" layoutY="600.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole91" fill="SADDLEBROWN" layoutX="600.0" layoutY="665.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole92" fill="SADDLEBROWN" layoutX="600.0" layoutY="725.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole93" fill="SADDLEBROWN" layoutX="601.0" layoutY="792.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole94" fill="SADDLEBROWN" layoutX="600.0" layoutY="857.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole95" fill="SADDLEBROWN" layoutX="661.0" layoutY="368.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole96" fill="SADDLEBROWN" layoutX="661.0" layoutY="435.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole97" fill="SADDLEBROWN" layoutX="661.0" layoutY="502.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole98" fill="SADDLEBROWN" layoutX="667.0" layoutY="563.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole99" fill="SADDLEBROWN" layoutX="661.0" layoutY="625.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole100" fill="SADDLEBROWN" layoutX="661.0" layoutY="690.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole101" fill="SADDLEBROWN" layoutX="661.0" layoutY="759.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole102" fill="SADDLEBROWN" layoutX="668.0" layoutY="826.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole103" fill="SADDLEBROWN" layoutX="725.0" layoutY="400.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole104" fill="SADDLEBROWN" layoutX="725.0" layoutY="468.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole105" fill="SADDLEBROWN" layoutX="736.0" layoutY="527.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole106" fill="SADDLEBROWN" layoutX="736.0" layoutY="600.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole107" fill="SADDLEBROWN" layoutX="736.0" layoutY="665.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole108" fill="SADDLEBROWN" layoutX="732.0" layoutY="727.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole109" fill="SADDLEBROWN" layoutX="736.0" layoutY="792.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole110" fill="SADDLEBROWN" layoutX="800.0" layoutY="435.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole111" fill="SADDLEBROWN" layoutX="800.0" layoutY="502.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole112" fill="SADDLEBROWN" layoutX="800.0" layoutY="563.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole113" fill="SADDLEBROWN" layoutX="800.0" layoutY="625.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole114" fill="SADDLEBROWN" layoutX="800.0" layoutY="700.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole115" fill="SADDLEBROWN" layoutX="800.0" layoutY="759.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole116" fill="SADDLEBROWN" layoutX="863.0" layoutY="468.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole117" fill="SADDLEBROWN" layoutX="863.0" layoutY="527.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole118" fill="SADDLEBROWN" layoutX="863.0" layoutY="594.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole119" fill="SADDLEBROWN" layoutX="863.0" layoutY="658.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+            <Circle fx:id="hole120" fill="SADDLEBROWN" layoutX="863.0" layoutY="734.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" />
+
+
+</children></Pane>
+   </children>
+</AnchorPane>
