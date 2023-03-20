@@ -45,14 +45,12 @@ public class BoardController {
 
     private void createMarble(Hole hole, int i, Color color) {
         hole.setOccupied(true);
-        Marble marble = new Marble(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), 18, color);
-        marble.toFront();
+        Marble marble = new Marble(hole, color);
         marbleGroup.getChildren().add(marble);
     }
 
     private void setupClickHandler() {
         root.setOnMouseClicked(event -> {
-            System.out.println("Board clicked");
             resetAllMarbleColors();
             selectedMarble = null;
         });

@@ -33,7 +33,9 @@ public class Hole {
     private void setupClickHandler() {
         this.circle.setOnMouseClicked(event -> {
             if (!occupied) {
-                System.out.println("HOLE CLICKED");
+                if (BoardController.selectedMarble != null) {
+                    BoardController.selectedMarble.move(this);
+                }
             }
         });
     }

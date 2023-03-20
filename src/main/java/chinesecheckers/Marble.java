@@ -6,16 +6,25 @@ import javafx.scene.shape.Circle;
 public class Marble extends Circle {
 
     private final Color color;
+    private Hole hole;
 
-    public Marble(double posX, double posY, double radius, Color color) {
-        super(posX, posY, radius, color);
+    public Marble(Hole hole, Color color) {
+        super(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), 18, color);
         this.color = color;
-        this.setUserData(color);
+        this.hole = hole;
         setupClickHandler();
     }
 
     public void resetColor() {
         this.setFill(color);
+    }
+
+    public void move(Hole hole) {
+        this.setCenterX(hole.getCircle().getLayoutX());
+        this.setCenterY(hole.getCircle().getLayoutY());
+        this.hole.setOccupied(false);
+        this.hole = hole;
+        this.hole.setOccupied(true);
     }
 
     private void highlight() {
