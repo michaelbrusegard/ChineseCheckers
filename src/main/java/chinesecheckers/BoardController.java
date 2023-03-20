@@ -1,13 +1,9 @@
 package chinesecheckers;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
@@ -17,27 +13,21 @@ public class BoardController {
     private AnchorPane root;
 
     @FXML
-    private Pane marblePane;
-    private int numHoles = 120;
-    private List<Boolean> occupiedList = new ArrayList<>(Collections.nCopies(numHoles, false));
-    private Circle currentMarble;
+    private Group marbleGroup;
+    private final int numHoles = 120;
+    public static Marble selectedMarble = null;
 
     public void initialize() {
         for (int i = 0; i <= numHoles; i++) {
             String id = "hole" + i;
-            Circle hole = (Circle) root.lookup("#" + id);
+            Circle circle = (Circle) root.lookup("#" + id);
+            Hole hole = new Hole(i, circle);
             placeMarbles(hole, i);
         }
-
-        marblePane.setOnMouseClicked(event -> {
-            resetMarbleColors();
-            currentMarble = null;
-        });
-
-
+        setupClickHandler();
     }
 
-    private void placeMarbles(Circle hole, int i) {
+    private void placeMarbles(Hole hole, int i) {
         if (i < 10) {
             createMarble(hole, i, Color.BLACK);
         } else if (i < 20) {
@@ -53,38 +43,24 @@ public class BoardController {
         }
     }
 
-    private void createMarble(Circle hole, int i, Color color) {
-        occupiedList.set(i, true);
-        Circle marble = new Circle(hole.getLayoutX(), hole.getLayoutY(), 18, color);
+    private void createMarble(Hole hole, int i, Color color) {
+        hole.setOccupied(true);
+        Marble marble = new Marble(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), 18, color);
         marble.toFront();
-        marblePane.getChildren().add(marble);
-        marble.setUserData(color);
+        marbleGroup.getChildren().add(marble);
+    }
 
-        marble.setOnMouseClicked(event -> {
-            if (marble != currentMarble) {
-                if (currentMarble != null) {
-                    resetMarbleColors();
-                }
-                highlightMarble(marble);
-                currentMarble = marble;
-                event.consume();
-            }
+    private void setupClickHandler() {
+        root.setOnMouseClicked(event -> {
+            System.out.println("Board clicked");
+            resetAllMarbleColors();
+            selectedMarble = null;
         });
     }
 
-    private void resetMarbleColors() {
-        for (Node node : marblePane.getChildren()) {
-            ((Circle) node).setFill((Color) ((Circle) node).getUserData());
-        }
-    }
-
-    private void highlightMarble(Circle marble) {
-        if (marble.getFill().equals(Color.BLACK)) {
-            marble.setFill(((Color) marble.getUserData()).brighter().brighter().brighter().brighter());
-        } else if (marble.getFill().equals(Color.WHITE) || marble.getFill().equals(Color.YELLOW)
-                || marble.getFill().equals(Color.BLUE) || marble.getFill().equals(Color.RED)
-                || marble.getFill().equals(Color.GREEN)) {
-            marble.setFill(((Color) marble.getUserData()).darker());
+    public void resetAllMarbleColors() {
+        for (Node marble : marbleGroup.getChildren()) {
+            ((Marble) marble).resetColor();
         }
     }
 }
