@@ -14,17 +14,23 @@ public class BoardController {
 
     @FXML
     private Group marbleGroup;
-    private final int numHoles = 120;
     public static Marble selectedMarble = null;
 
+    private final int numHoles = 120;
+    public static final int marbleRadius = 18; 
+
     public void initialize() {
+        setupClickHandler();
+        createHoleObjects();
+    }
+
+    private void createHoleObjects() {
         for (int i = 0; i <= numHoles; i++) {
             String id = "hole" + i;
             Circle circle = (Circle) root.lookup("#" + id);
             Hole hole = new Hole(i, circle);
             placeMarbles(hole, i);
         }
-        setupClickHandler();
     }
 
     private void placeMarbles(Hole hole, int i) {

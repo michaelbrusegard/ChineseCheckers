@@ -18,12 +18,9 @@ public class BoardApp extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/chinesecheckers/Board.fxml"));
         AnchorPane root = loader.load();
-        BoardController controller = loader.getController();
 
         primaryStage.setTitle("Chinese Checkers");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
-        controller.initialize();
     }
 }
