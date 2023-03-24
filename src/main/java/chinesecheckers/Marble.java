@@ -28,11 +28,22 @@ public class Marble extends Circle {
     }
 
     public void move(Hole hole) {
-        this.setCenterX(hole.getCircle().getLayoutX());
-        this.setCenterY(hole.getCircle().getLayoutY());
-        this.hole.setOccupied(false);
-        this.hole = hole;
-        this.hole.setOccupied(true);
+        boolean isLegalMove = true;
+        if (BoardController.enforceMoves.isSelected()) {
+            isLegalMove = false;
+            for (Hole neighbour : this.hole.getNeighbours()) {
+                if (hole == neighbour) {
+                    isLegalMove = true;
+                }
+            }
+        }
+        if (isLegalMove) {
+            this.setCenterX(hole.getCircle().getLayoutX());
+            this.setCenterY(hole.getCircle().getLayoutY());
+            this.hole.setOccupied(false);
+            this.hole = hole;
+            this.hole.setOccupied(true);
+        }
     }
 
     private void highlight() {
@@ -46,9 +57,11 @@ public class Marble extends Circle {
     }
 
     private void markLegalMoves() {
-        for (Hole hole : this.hole.getNeighbours()) {
-            if (!hole.isOccupied()) {
-                hole.getCircle().setFill(Color.web("#A06E0D"));
+        if (BoardController.highlightMoves.isSelected()) {
+            for (Hole hole : this.hole.getNeighbours()) {
+                if (!hole.isOccupied()) {
+                    hole.getCircle().setFill(Color.web("#A06E0D"));
+                }
             }
         }
     }

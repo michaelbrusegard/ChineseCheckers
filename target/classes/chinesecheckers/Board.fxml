@@ -126,7 +126,7 @@
       <Circle fx:id="holeP2P3N5" fill="SADDLEBROWN" layoutX="930.0" layoutY="481.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP1P4N5" fill="SADDLEBROWN" layoutX="930.0" layoutY="547.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN4P8N4" fill="SADDLEBROWN" layoutX="865.0" layoutY="842.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
-      <Circle fx:id="holeN3P8N4" fill="SADDLEBROWN" layoutX="865.0" layoutY="777.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="holeN3P7N4" fill="SADDLEBROWN" layoutX="865.0" layoutY="777.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN4P7N3" fill="SADDLEBROWN" layoutX="799.0" layoutY="809.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN2P6N4" fill="SADDLEBROWN" layoutX="865.0" layoutY="713.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN3P6N3" fill="SADDLEBROWN" layoutX="801.0" layoutY="746.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
@@ -141,7 +141,7 @@
       <Circle fx:id="holeN6P4P2" fill="SADDLEBROWN" layoutX="468.0" layoutY="785.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN6P3P3" fill="SADDLEBROWN" layoutX="401.0" layoutY="749.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN6P2P4" fill="SADDLEBROWN" layoutX="336.0" layoutY="715.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
-      <Circle fx:id="holeN5P6P1" fill="SADDLEBROWN" layoutX="534.0" layoutY="747.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="holeN5P4P1" fill="SADDLEBROWN" layoutX="534.0" layoutY="747.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN5P3P2" fill="SADDLEBROWN" layoutX="469.0" layoutY="714.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN5P2P3" fill="SADDLEBROWN" layoutX="403.0" layoutY="680.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN5P1P4" fill="SADDLEBROWN" layoutX="336.0" layoutY="647.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
@@ -170,7 +170,7 @@
       <Circle fx:id="holeN1P0P1" fill="SADDLEBROWN" layoutX="534.0" layoutY="483.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN2P1P1" fill="SADDLEBROWN" layoutX="535.0" layoutY="545.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN3P2P1" fill="SADDLEBROWN" layoutX="536.0" layoutY="613.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
-      <Circle fx:id="holeN4P5P1" fill="SADDLEBROWN" layoutX="535.0" layoutY="678.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="holeN4P3P1" fill="SADDLEBROWN" layoutX="535.0" layoutY="678.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP4N4P0" fill="SADDLEBROWN" layoutX="601.0" layoutY="184.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP3N3P0" fill="SADDLEBROWN" layoutX="600.0" layoutY="251.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP2N2P0" fill="SADDLEBROWN" layoutX="600.0" layoutY="318.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
@@ -193,7 +193,7 @@
       <Circle fx:id="holeP2P0N2" fill="SADDLEBROWN" layoutX="732.0" layoutY="383.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP1P1N2" fill="SADDLEBROWN" layoutX="732.0" layoutY="449.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP0P2N2" fill="SADDLEBROWN" layoutX="733.0" layoutY="516.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
-      <Circle fx:id="holeN1P3N3" fill="SADDLEBROWN" layoutX="732.0" layoutY="579.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
+      <Circle fx:id="holeN1P3N2" fill="SADDLEBROWN" layoutX="732.0" layoutY="579.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeN2P4N2" fill="SADDLEBROWN" layoutX="735.0" layoutY="645.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP4N1N3" fill="SADDLEBROWN" layoutX="799.0" layoutY="284.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP3P0N3" fill="SADDLEBROWN" layoutX="798.0" layoutY="351.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
@@ -208,12 +208,12 @@
       <Circle fx:id="holeP0P4N4" fill="SADDLEBROWN" layoutX="864.0" layoutY="581.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Group fx:id="marbleGroup" />
       <Group fx:id="highlightGroup" />
-      <CheckBox layoutX="921.0" layoutY="13.0" mnemonicParsing="false" text="Highlight legal moves">
+      <CheckBox fx:id="highlightMoves" layoutX="921.0" layoutY="13.0" mnemonicParsing="false" text="Highlight legal moves">
          <font>
             <Font size="24.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="921.0" layoutY="57.0" mnemonicParsing="false" text="Enforce legal moves">
+      <CheckBox fx:id="enforceMoves" layoutX="921.0" layoutY="57.0" mnemonicParsing="false" text="Enforce legal moves">
          <font>
             <Font size="24.0" />
          </font>

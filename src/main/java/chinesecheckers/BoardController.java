@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -18,11 +19,18 @@ public class BoardController {
 
     @FXML
     private Group marbleGroup;
+
+    public static CheckBox highlightMoves;
+    public static CheckBox enforceMoves;
     public static Marble selectedMarble = null;
     private final static List<Hole> holes = new ArrayList<>();
 
     public void initialize() {
-        setupClickHandler();
+        highlightMoves = (CheckBox) root.lookup("#highlightMoves");
+        enforceMoves = (CheckBox) root.lookup("#enforceMoves");
+        setupClickHandler(root);
+        setupClickHandler(highlightMoves);
+        setupClickHandler(enforceMoves);
         createHoleObjects();
     }
 
@@ -40,7 +48,6 @@ public class BoardController {
             int posX = posIdNumToInt(positionId.substring(0, 2));
             int posY = posIdNumToInt(positionId.substring(2, 4));
             int posZ = posIdNumToInt(positionId.substring(4, 6));
-            System.out.println(posX);
             Hole hole = new Hole(circle, new int[]{posX, posY, posZ});
             holes.add(hole);
             placeMarbles(hole);
@@ -81,8 +88,8 @@ public class BoardController {
         marbleGroup.getChildren().add(marble);
     }
 
-    private void setupClickHandler() {
-        root.setOnMouseClicked(event -> {
+    private void setupClickHandler(Node node) {
+        node.setOnMouseClicked(event -> {
             resetAllColors();
             selectedMarble = null;
         });
