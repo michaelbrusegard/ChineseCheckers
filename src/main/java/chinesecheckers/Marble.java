@@ -9,10 +9,18 @@ public class Marble extends Circle {
     private Hole hole;
 
     public Marble(Hole hole, Color color) {
-        super(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), BoardController.marbleRadius, color);
+        super(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), 18, color);
         this.color = color;
         this.hole = hole;
         setupClickHandler();
+    }
+
+    public Color getColor() {
+        return this.color;
+    }
+
+    public Hole getHole() {
+        return this.hole;
     }
 
     public void resetColor() {
@@ -38,7 +46,11 @@ public class Marble extends Circle {
     }
 
     private void markLegalMoves() {
-
+        for (Hole hole : this.hole.getNeighbours()) {
+            if (!hole.isOccupied()) {
+                hole.getCircle().setFill(Color.web("#A06E0D"));
+            }
+        }
     }
 
     private void setupClickHandler() {

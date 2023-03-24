@@ -1,5 +1,9 @@
 package chinesecheckers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -15,9 +19,7 @@ public class BoardController {
     @FXML
     private Group marbleGroup;
     public static Marble selectedMarble = null;
-
-    private final int numHoles = 120;
-    public static final int marbleRadius = 18; 
+    private final static List<Hole> holes = new ArrayList<>();
 
     public void initialize() {
         setupClickHandler();
@@ -25,31 +27,55 @@ public class BoardController {
     }
 
     private void createHoleObjects() {
-        for (int i = 0; i <= numHoles; i++) {
-            String id = "hole" + i;
-            Circle circle = (Circle) root.lookup("#" + id);
-            Hole hole = new Hole(i, circle);
-            placeMarbles(hole, i);
+        List<Node> circleNodes = new ArrayList<>();
+        for (Node child : root.getChildren()) {
+            if (child instanceof Circle && child.getId().startsWith("hole")) {
+                circleNodes.add(child);
+            }
+        }
+
+        for (Node node : circleNodes) {
+            Circle circle = (Circle) node;
+            String positionId = circle.getId().substring(4);
+            int posX = posIdNumToInt(positionId.substring(0, 2));
+            int posY = posIdNumToInt(positionId.substring(2, 4));
+            int posZ = posIdNumToInt(positionId.substring(4, 6));
+            System.out.println(posX);
+            Hole hole = new Hole(circle, new int[]{posX, posY, posZ});
+            holes.add(hole);
+            placeMarbles(hole);
+        }
+
+        for (Hole hole : holes) {
+            hole.findNeighbours();
         }
     }
 
-    private void placeMarbles(Hole hole, int i) {
-        if (i < 10) {
-            createMarble(hole, i, Color.BLACK);
-        } else if (i < 20) {
-            createMarble(hole, i, Color.GREEN);
-        } else if (i < 30) {
-            createMarble(hole, i, Color.BLUE);
-        } else if (i < 40) {
-            createMarble(hole, i, Color.WHITE);
-        } else if (i < 50) {
-            createMarble(hole, i, Color.RED);
-        } else if (i < 60) {
-            createMarble(hole, i, Color.YELLOW);
+    private int posIdNumToInt(String posIdNum) {
+        char sign = posIdNum.charAt(0);
+        int value = Integer.parseInt(posIdNum.substring(1));
+        if (sign == 'N') {
+            value = -value;
+        }
+        return value;
+    }
+
+    public static Hole getHole(int[] neighbourCoordinate) {
+        for (Hole hole : holes) {
+            if (Arrays.equals(hole.getCoordinates(), neighbourCoordinate)) {
+                return hole;
+            }
+        }
+        return null;
+    }
+
+    private void placeMarbles(Hole hole) {
+        if (Arrays.equals(hole.getCoordinates(), new int[] {0, 0, 0})) {
+            createMarble(hole, Color.RED);
         }
     }
 
-    private void createMarble(Hole hole, int i, Color color) {
+    private void createMarble(Hole hole, Color color) {
         hole.setOccupied(true);
         Marble marble = new Marble(hole, color);
         marbleGroup.getChildren().add(marble);
@@ -57,14 +83,18 @@ public class BoardController {
 
     private void setupClickHandler() {
         root.setOnMouseClicked(event -> {
-            resetAllMarbleColors();
+            resetAllColors();
             selectedMarble = null;
         });
     }
 
-    public void resetAllMarbleColors() {
+    public void resetAllColors() {
         for (Node marble : marbleGroup.getChildren()) {
             ((Marble) marble).resetColor();
+        }
+
+        for (Hole hole : holes) {
+            hole.getCircle().setFill(Color.web("#8B4513"));
         }
     }
 }
