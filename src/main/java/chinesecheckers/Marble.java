@@ -1,5 +1,8 @@
 package chinesecheckers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
@@ -31,8 +34,8 @@ public class Marble extends Circle {
         boolean isLegalMove = true;
         if (BoardController.enforceMoves.isSelected()) {
             isLegalMove = false;
-            for (Hole neighbour : this.hole.getNeighbours()) {
-                if (hole == neighbour) {
+            for (Hole legalHole : findHoles(this.hole)) {
+                if (hole == legalHole) {
                     isLegalMove = true;
                 }
             }
@@ -56,14 +59,44 @@ public class Marble extends Circle {
         }
     }
 
-    private void markLegalMoves() {
+    private void highlightLegalMoves() {
         if (BoardController.highlightMoves.isSelected()) {
-            for (Hole hole : this.hole.getNeighbours()) {
-                if (!hole.isOccupied()) {
-                    hole.getCircle().setFill(Color.web("#A06E0D"));
+            for (Hole hole : findHoles(this.hole)) {
+                hole.getCircle().setFill(Color.web("#A06E0D"));
+            }
+        }
+    }
+
+    private List<Hole> findHoles(Hole currentHole) {
+        List<Hole> holes = new ArrayList<>();
+        for (Hole hole : currentHole.getNeighbours()) {
+            if (!hole.isOccupied()) {
+                holes.add(hole);
+            }
+        }
+        holes.addAll(findJumpHoles(this.hole, new ArrayList<>()));
+        holes.remove(this.hole);
+        return holes;
+    }
+
+    private List<Hole> findJumpHoles(Hole currentHole, List<Hole> jumpHoles) {
+        jumpHoles.add(currentHole);
+        for (Hole currentHoleNeighbour : currentHole.getNeighbours()) {
+            if (currentHoleNeighbour.isOccupied()) {
+                for (Hole occupiedHoleNeighbour : currentHoleNeighbour.getNeighbours()) {
+                    if (occupiedHoleNeighbour.getCoordinates()[0] == currentHole.getCoordinates()[0]
+                            || occupiedHoleNeighbour.getCoordinates()[1] == currentHole.getCoordinates()[1]
+                            || occupiedHoleNeighbour.getCoordinates()[2] == currentHole.getCoordinates()[2]) {
+                        if (!occupiedHoleNeighbour.isOccupied()
+                                && !currentHole.getNeighbours().contains(occupiedHoleNeighbour)
+                                && !jumpHoles.contains(occupiedHoleNeighbour)) {
+                            findJumpHoles(occupiedHoleNeighbour, jumpHoles);
+                        }
+                    }
                 }
             }
         }
+        return jumpHoles;
     }
 
     private void setupClickHandler() {
@@ -71,9 +104,10 @@ public class Marble extends Circle {
             if (this != BoardController.selectedMarble) {
                 if (BoardController.selectedMarble != null) {
                     BoardController.selectedMarble.resetColor();
+                    BoardController.resetAllHoleColors();
                 }
                 highlight();
-                markLegalMoves();
+                highlightLegalMoves();
                 BoardController.selectedMarble = this;
                 event.consume();
             }

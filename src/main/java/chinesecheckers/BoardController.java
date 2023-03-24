@@ -79,6 +79,10 @@ public class BoardController {
     private void placeMarbles(Hole hole) {
         if (Arrays.equals(hole.getCoordinates(), new int[] {0, 0, 0})) {
             createMarble(hole, Color.RED);
+        } else if (Arrays.equals(hole.getCoordinates(), new int[] {0, 1, -1})) {
+            createMarble(hole, Color.RED);
+        } else if (Arrays.equals(hole.getCoordinates(), new int[] {-1, -1, 2})) {
+            createMarble(hole, Color.RED);
         }
     }
 
@@ -90,16 +94,19 @@ public class BoardController {
 
     private void setupClickHandler(Node node) {
         node.setOnMouseClicked(event -> {
-            resetAllColors();
+            resetAllMarbleColors();
+            resetAllHoleColors();
             selectedMarble = null;
         });
     }
 
-    public void resetAllColors() {
+    public void resetAllMarbleColors() {
         for (Node marble : marbleGroup.getChildren()) {
             ((Marble) marble).resetColor();
         }
+    }
 
+    public static void resetAllHoleColors() {
         for (Hole hole : holes) {
             hole.getCircle().setFill(Color.web("#8B4513"));
         }
