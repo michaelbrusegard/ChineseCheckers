@@ -1,7 +1,10 @@
 package chinesecheckers;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -9,17 +12,36 @@ import javafx.scene.shape.Circle;
 public class Marble extends Circle {
 
     private final Color color;
+    private final String army;
     private Hole hole;
 
-    public Marble(Hole hole, Color color) {
-        super(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), 18, color);
-        this.color = color;
+    private static final Map<String, Color> colors;
+
+    static {
+        Map<String, Color> map = new HashMap<>();
+        map.put("red", Color.RED);
+        map.put("green", Color.GREEN);
+        map.put("blue", Color.BLUE);
+        map.put("black", Color.BLACK);
+        map.put("white", Color.WHITE);
+        map.put("yellow", Color.YELLOW);
+        colors = Collections.unmodifiableMap(map);
+    }
+
+    public Marble(Hole hole, String color) {
+        super(hole.getCircle().getLayoutX(), hole.getCircle().getLayoutY(), 18, colors.get(color));
+        this.color = colors.get(color);
         this.hole = hole;
+        this.army = color;
         setupClickHandler();
     }
 
     public Color getColor() {
         return this.color;
+    }
+
+    public String getArmy() {
+        return this.army;
     }
 
     public Hole getHole() {
@@ -81,12 +103,11 @@ public class Marble extends Circle {
 
     private List<Hole> findJumpHoles(Hole currentHole, List<Hole> jumpHoles) {
         jumpHoles.add(currentHole);
+
         for (Hole currentHoleNeighbour : currentHole.getNeighbours()) {
             if (currentHoleNeighbour.isOccupied()) {
                 for (Hole occupiedHoleNeighbour : currentHoleNeighbour.getNeighbours()) {
-                    if (occupiedHoleNeighbour.getCoordinates()[0] == currentHole.getCoordinates()[0]
-                            || occupiedHoleNeighbour.getCoordinates()[1] == currentHole.getCoordinates()[1]
-                            || occupiedHoleNeighbour.getCoordinates()[2] == currentHole.getCoordinates()[2]) {
+                    if (occupiedOnSameAxis(occupiedHoleNeighbour, currentHole)) {
                         if (!occupiedHoleNeighbour.isOccupied()
                                 && !currentHole.getNeighbours().contains(occupiedHoleNeighbour)
                                 && !jumpHoles.contains(occupiedHoleNeighbour)) {
@@ -97,6 +118,12 @@ public class Marble extends Circle {
             }
         }
         return jumpHoles;
+    }
+
+    private boolean occupiedOnSameAxis(Hole occupiedHoleNeighbour, Hole currentHole) {
+        return occupiedHoleNeighbour.getCoordinates()[0] == currentHole.getCoordinates()[0]
+        || occupiedHoleNeighbour.getCoordinates()[1] == currentHole.getCoordinates()[1]
+        || occupiedHoleNeighbour.getCoordinates()[2] == currentHole.getCoordinates()[2];
     }
 
     private void setupClickHandler() {

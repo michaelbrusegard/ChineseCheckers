@@ -7,6 +7,7 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -18,8 +19,12 @@ public class BoardController {
     private AnchorPane root;
 
     @FXML
-    private Group marbleGroup;
+    private Button save;
 
+    @FXML
+    private Button load;
+
+    public static Group marbleGroup;
     public static CheckBox highlightMoves;
     public static CheckBox enforceMoves;
     public static Marble selectedMarble = null;
@@ -28,10 +33,13 @@ public class BoardController {
     public void initialize() {
         highlightMoves = (CheckBox) root.lookup("#highlightMoves");
         enforceMoves = (CheckBox) root.lookup("#enforceMoves");
+        marbleGroup = (Group) root.lookup("#marbleGroup");
         setupClickHandler(root);
         setupClickHandler(highlightMoves);
         setupClickHandler(enforceMoves);
         createHoleObjects();
+        load.setOnAction((event) -> {FileManager.load();});
+        save.setOnAction((event) -> {FileManager.save();});
     }
 
     private void createHoleObjects() {
@@ -78,17 +86,23 @@ public class BoardController {
 
     private void placeMarbles(Hole hole) {
         if (Arrays.equals(hole.getCoordinates(), new int[] {0, 0, 0})) {
-            createMarble(hole, Color.RED);
+            createMarble(hole.getCircle().getId(), "red");
         } else if (Arrays.equals(hole.getCoordinates(), new int[] {0, 1, -1})) {
-            createMarble(hole, Color.RED);
+            createMarble(hole.getCircle().getId(), "black");
         } else if (Arrays.equals(hole.getCoordinates(), new int[] {-1, -1, 2})) {
-            createMarble(hole, Color.RED);
+            createMarble(hole.getCircle().getId(), "blue");
         }
     }
 
-    private void createMarble(Hole hole, Color color) {
-        hole.setOccupied(true);
-        Marble marble = new Marble(hole, color);
+    public static void createMarble(String holeId, String color) {
+        Hole currentHole = null;
+        for (Hole hole : holes) {
+            if (hole.getCircle().getId().equals(holeId)) {
+                currentHole = hole;
+            }
+        }
+        currentHole.setOccupied(true);
+        Marble marble = new Marble(currentHole, color);
         marbleGroup.getChildren().add(marble);
     }
 
@@ -103,6 +117,14 @@ public class BoardController {
     public void resetAllMarbleColors() {
         for (Node marble : marbleGroup.getChildren()) {
             ((Marble) marble).resetColor();
+        }
+    }
+
+    public static void cleanSlateMarbles() {
+        marbleGroup.getChildren().clear();
+
+        for (Hole hole : holes) {
+            hole.setOccupied(false);
         }
     }
 

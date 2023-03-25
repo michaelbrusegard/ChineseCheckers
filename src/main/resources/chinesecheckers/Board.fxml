@@ -218,12 +218,12 @@
             <Font size="24.0" />
          </font>
       </CheckBox>
-      <Button layoutX="1100.0" layoutY="835.0" mnemonicParsing="false" text="Load">
+      <Button fx:id="load" layoutX="1100.0" layoutY="835.0" mnemonicParsing="false" text="Load">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1018.0" layoutY="835.0" mnemonicParsing="false" text="Save">
+      <Button fx:id="save" layoutX="1018.0" layoutY="835.0" mnemonicParsing="false" text="Save">
          <font>
             <Font size="24.0" />
          </font>
