@@ -11,9 +11,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class FileManager {
-    public static void load() {
-        String filePath = selectorWindow("Open file", false);
+    public static void load(String filePath) {
         if (filePath == null) {return;}
+        System.out.println(filePath);
         BoardController.cleanSlateMarbles();
         try {
             FileReader fileReader = new FileReader(filePath);
@@ -29,14 +29,13 @@ public class FileManager {
         }
     }
 
-    public static void save() {
-        String filePath = selectorWindow("Save to file", true);
+    public static void save(String filePath) {
         if (filePath == null) {return;}
         try {
             String saveInfo = "";
             for (Node marble : BoardController.marbleGroup.getChildren()) {
                 String army = ((Marble) marble).getArmy();
-                String hole = ((Marble) marble).getHole().getCircle().getId();
+                String hole = ((Marble) marble).getHole().getCircle().getId().substring(4);
                 saveInfo += army + ":" + hole + "\n";
             }
             FileWriter fileWriter = new FileWriter(filePath);
@@ -47,11 +46,11 @@ public class FileManager {
         }
     }
 
-    private static String selectorWindow(String title, boolean save) {
+    public static String selectorWindow(String title, boolean save) {
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);
-        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("ChineseCheckers files (*.cc)", "*.cc");
+        FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("ChineseCheckers files (*.chc)", "*.chc");
         fileChooser.getExtensionFilters().add(filter);
         File file = save ? fileChooser.showSaveDialog(stage) : fileChooser.showOpenDialog(stage);
 

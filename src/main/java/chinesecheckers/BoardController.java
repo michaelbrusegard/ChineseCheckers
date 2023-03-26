@@ -38,8 +38,9 @@ public class BoardController {
         setupClickHandler(highlightMoves);
         setupClickHandler(enforceMoves);
         createHoleObjects();
-        load.setOnAction((event) -> {FileManager.load();});
-        save.setOnAction((event) -> {FileManager.save();});
+        FileManager.load("src/main/resources/chinesecheckers/StartBoard.chc");
+        load.setOnAction((event) -> {FileManager.load(FileManager.selectorWindow("Open file", false));});
+        save.setOnAction((event) -> {FileManager.save(FileManager.selectorWindow("Save to file", true));});
     }
 
     private void createHoleObjects() {
@@ -58,7 +59,6 @@ public class BoardController {
             int posZ = posIdNumToInt(positionId.substring(4, 6));
             Hole hole = new Hole(circle, new int[]{posX, posY, posZ});
             holes.add(hole);
-            placeMarbles(hole);
         }
 
         for (Hole hole : holes) {
@@ -84,20 +84,10 @@ public class BoardController {
         return null;
     }
 
-    private void placeMarbles(Hole hole) {
-        if (Arrays.equals(hole.getCoordinates(), new int[] {0, 0, 0})) {
-            createMarble(hole.getCircle().getId(), "red");
-        } else if (Arrays.equals(hole.getCoordinates(), new int[] {0, 1, -1})) {
-            createMarble(hole.getCircle().getId(), "black");
-        } else if (Arrays.equals(hole.getCoordinates(), new int[] {-1, -1, 2})) {
-            createMarble(hole.getCircle().getId(), "blue");
-        }
-    }
-
     public static void createMarble(String holeId, String color) {
         Hole currentHole = null;
         for (Hole hole : holes) {
-            if (hole.getCircle().getId().equals(holeId)) {
+            if (hole.getCircle().getId().substring(4).equals(holeId)) {
                 currentHole = hole;
             }
         }
