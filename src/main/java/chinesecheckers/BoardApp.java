@@ -20,6 +20,7 @@ public class BoardApp extends Application {
         AnchorPane root = loader.load();
 
         primaryStage.setTitle("Chinese Checkers");
+        primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

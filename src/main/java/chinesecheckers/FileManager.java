@@ -10,10 +10,9 @@ import javafx.scene.Node;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-public class FileManager {
+public class FileManager implements IFileManager {
     public static void load(String filePath) {
         if (filePath == null) {return;}
-        System.out.println(filePath);
         BoardController.cleanSlateMarbles();
         try {
             FileReader fileReader = new FileReader(filePath);
@@ -47,6 +46,8 @@ public class FileManager {
     }
 
     public static String selectorWindow(String title, boolean save) {
+        BoardController.resetAllMarbleColors();
+        BoardController.resetAllHoleColors();
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(title);

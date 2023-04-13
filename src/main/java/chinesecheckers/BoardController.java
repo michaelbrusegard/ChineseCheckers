@@ -104,7 +104,7 @@ public class BoardController {
         });
     }
 
-    public void resetAllMarbleColors() {
+    public static void resetAllMarbleColors() {
         for (Node marble : marbleGroup.getChildren()) {
             ((Marble) marble).resetColor();
         }
