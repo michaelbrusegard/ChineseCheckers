@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 public class HoleTest {
@@ -36,7 +35,7 @@ public class HoleTest {
     public void testFindNeighbours() throws IOException {
         Platform.startup(() -> {});
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/chinesecheckers/Board.fxml"));
-        AnchorPane root = loader.load();
+        loader.load();
         BoardController mockController = loader.getController();
         mockController.initialize();
 
