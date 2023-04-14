@@ -207,7 +207,6 @@
       <Circle fx:id="holeP1P3N4" fill="SADDLEBROWN" layoutX="864.0" layoutY="514.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Circle fx:id="holeP0P4N4" fill="SADDLEBROWN" layoutX="864.0" layoutY="581.0" radius="25.0" stroke="#cd853f" strokeType="INSIDE" strokeWidth="5.0" />
       <Group fx:id="marbleGroup" />
-      <Group fx:id="highlightGroup" />
       <CheckBox fx:id="highlightMoves" layoutX="921.0" layoutY="13.0" mnemonicParsing="false" text="Highlight legal moves">
          <font>
             <Font size="24.0" />
