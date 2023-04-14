@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javafx.application.Platform;
@@ -14,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
 public class HoleTest {
+
     @Test
     public void testConstructor() {
         Circle testCircle = new Circle(1, 1, 1);
@@ -32,19 +31,15 @@ public class HoleTest {
             assertEquals(false, hole.isOccupied());
         }
     }
-
-
-    @BeforeEach
-    public void setUp() throws IOException {
+    
+    @Test
+    public void testFindNeighbours() throws IOException {
         Platform.startup(() -> {});
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/chinesecheckers/Board.fxml"));
         AnchorPane root = loader.load();
         BoardController mockController = loader.getController();
         mockController.initialize();
-    }
-    
-    @Test
-    public void testFindNeighbours() {
+
         Circle testCircle = new Circle();
         int[] coordinates = new int[] {0, 0, 0};
         Hole hole = new Hole(testCircle, coordinates);
