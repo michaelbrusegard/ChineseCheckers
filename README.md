@@ -19,7 +19,7 @@ In the project I am using inheritance for the Marble class which extends the bui
 As for interface, I am using an interface for the FileManager class. In this case it is not strictly necessary, but for future development it could be good if a class needs its own seperate filehandling. I could also have implemented for shared functionality in the Hole and Marble class if both of them were setup as extensions of the Circle class. Then they may have had shared functionality.
 
 ## Implementation of delegation?
-If I were to implement delegation in my project I probably would simplify the BoardController class and have it delegate some of the functionality to controller subclasses in away which makes the BoardController class less convulated.
+If I were to implement delegation in my project I probably would simplify the BoardController class and have it delegate some of the functionality to controller subclasses in a way which makes the BoardController class less convulated.
 
 ## Model-View-Controller principle
 The Model-View-Controller (MVC) principle is a software design pattern that separates an application into three interconnected components: the model, the view, and the controller. 
