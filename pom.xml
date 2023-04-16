@@ -5,53 +5,72 @@
  
     <groupId>chinesecheckers</groupId>
     <artifactId>chinesecheckers</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
- 
     <name>chinesecheckers</name>
-	
 
-   <dependencies>
+    <dependencies>
 
- 	<dependency>
-		<groupId>org.openjfx</groupId>
-	  <artifactId>javafx-fxml</artifactId>
-	  <version>19</version>
-	</dependency>
+		<!-- JavaFX -->
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-fxml</artifactId>
+			<version>19</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>19</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics</artifactId>
+			<version>19</version>
+		</dependency>
 
+		<!-- JUnit 5 -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.7.0</version>
+		</dependency>
+    </dependencies>
 
-	<!-- JUnit 5 -->
-	<dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.7.0</version>
-	</dependency>
-  </dependencies>
-
-  <build>
-	<plugins>
-	  <plugin>
-		<artifactId>maven-compiler-plugin</artifactId>
-		<version>3.8.0</version>
-		<configuration>
-		  <release>17</release>
-		</configuration>
-	  </plugin>
-	  <plugin>
-		  <artifactId>maven-surefire-plugin</artifactId>
-		  <version>3.0.0-M5</version>
-		  <configuration>
-			  <argLine>--enable-preview</argLine>
-		  </configuration>
-	  </plugin>
-	  <plugin>
-		  <artifactId>maven-failsafe-plugin</artifactId>
-		  <version>3.0.0-M5</version>
-		  <configuration>
-			  <argLine>--enable-preview</argLine>
-		  </configuration>
-	  </plugin>
-
-	</plugins>
-  </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>chinesecheckers.BoardApp</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<release>17</release>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<argLine>--enable-preview</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<configuration>
+					<argLine>--enable-preview</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
