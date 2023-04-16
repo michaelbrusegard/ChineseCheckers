@@ -71,6 +71,6 @@ BoardApp o-- BoardController
 BoardController o-- Hole
 BoardController o-- Marble
 BoardController o-- IFileManager
-Hole o-- Marble
+Hole *-- Marble
 
 @enduml
