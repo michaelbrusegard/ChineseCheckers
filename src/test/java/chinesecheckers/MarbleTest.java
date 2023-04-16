@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,10 +13,13 @@ import java.io.IOException;
 
 public class MarbleTest {
 
+    // @BeforeAll
+    // public static void initialize() {
+    //     Platform.startup(() -> {});
+    // }
+
     @BeforeEach
-    public void setUp() throws IOException {
-        Platform.startup(() -> {
-        });
+    public void setup() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/chinesecheckers/Board.fxml"));
         loader.load();
         BoardController mockController = loader.getController();

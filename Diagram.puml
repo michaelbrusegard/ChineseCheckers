@@ -1,0 +1,76 @@
+@startuml Diagram
+
+class BoardApp extends Application {
+    +static void main(String[] args)
+    +void start(Stage primaryStage)
+}
+
+class BoardController {
+    -AnchorPane root
+    -Button save
+    -Button load
+    +static Group marbleGroup
+    +static CheckBox highlightMoves
+    +static CheckBox enforceMoves
+    +static Marble selectedMarble
+    -final static List<Hole> holes
+    +void initialize()
+    -void createHoleObjects()
+    -int posIdNumToInt(String posIdNum)
+    +static Hole getHole(int[] neighbourCoordinate)
+    +static void createMarble(String holeId, String color)
+    -void setupClickHandler(Node node)
+    +static void resetAllMarbleColors()
+    +static void cleanSlateMarbles()
+    +static void resetAllHoleColors()
+}
+
+class Hole {
+    -final Circle circle
+    -final int[] coordinates
+    -boolean occupied
+    -final List<Hole> neighbours
+    +Hole(Circle circle, int[] coordinates)
+    +Circle getCircle()
+    +int[] getCoordinates()
+    +boolean isOccupied()
+    +List<Hole> getNeighbours()
+    +void setOccupied(boolean occupied)
+    +void findNeighbours()
+    -void setupClickHandler()
+}
+
+class Marble extends Circle {
+    -final Color color
+    -final String army
+    -Hole hole
+    -static final Map<String, Color> colors
+    +Marble(Hole hole, String color)
+    +Color getColor()
+    +String getArmy()
+    +Hole getHole()
+    +void resetColor()
+    +void move(Hole hole)
+    -void highlight()
+    -void highlightLegalMoves()
+    -List<Hole> findHoles(Hole currentHole)
+    -List<Hole> findJumpHoles(Hole currentHole, List<Hole> jumpHoles)
+    -boolean occupiedOnSameAxis(Hole occupiedHoleNeighbour, Hole currentHole)
+    -void setupClickHandler()
+}
+
+interface IFileManager 
+
+class FileManager implements IFileManager {
+    +static void load(String filePath)
+    +static void save(String filePath)
+    +static String selectorWindow(String title, boolean save)
+}
+
+BoardApp o-- BoardController
+BoardController o-- Hole
+BoardController o-- Marble
+BoardController o-- IFileManager
+Hole o-- Marble
+
+@enduml
