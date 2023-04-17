@@ -1,5 +1,7 @@
 package chinesecheckers;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,9 +40,27 @@ public class BoardController {
         setupClickHandler(highlightMoves);
         setupClickHandler(enforceMoves);
         createHoleObjects();
-        FileManager.load("src/main/resources/chinesecheckers/StartBoard.chc");
-        load.setOnAction((event) -> {FileManager.load(FileManager.selectorWindow("Open file", false));});
-        save.setOnAction((event) -> {FileManager.save(FileManager.selectorWindow("Save to file", true));});
+        //loadStartBoard();
+        load.setOnAction((event) -> {
+            FileManager.load(FileManager.selectorWindow("Open file", false));
+        });
+        save.setOnAction((event) -> {
+            FileManager.save(FileManager.selectorWindow("Save to file", true));
+        });
+    }
+
+    private void loadStartBoard() {
+        InputStream inputStream = getClass().getResourceAsStream("/chinesecheckers/StartBoard.chc");
+        try {
+            String startBoardContent = new String(inputStream.readAllBytes());
+            String[] lines = startBoardContent.split("\\r?\\n");
+            for (String line : lines) {
+                String[] lineData = line.split(":");
+                createMarble(lineData[1], lineData[0]);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void createHoleObjects() {
@@ -57,7 +77,7 @@ public class BoardController {
             int posX = posIdNumToInt(positionId.substring(0, 2));
             int posY = posIdNumToInt(positionId.substring(2, 4));
             int posZ = posIdNumToInt(positionId.substring(4, 6));
-            Hole hole = new Hole(circle, new int[]{posX, posY, posZ});
+            Hole hole = new Hole(circle, new int[] { posX, posY, posZ });
             holes.add(hole);
         }
 

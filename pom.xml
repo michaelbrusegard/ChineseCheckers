@@ -19,14 +19,35 @@
 		</dependency>
 		<dependency>
 			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
+			<artifactId>javafx-graphics </artifactId>
 			<version>19</version>
 		</dependency>
-		<dependency>
+
+		<!-- Cross-Platform Graphics -->
+		<!-- <dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics </artifactId>
+			<version>19</version>
+			<classifier>win</classifier>
+		</dependency> -->
+		<!-- <dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics </artifactId>
+			<version>19</version>
+			<classifier>linux</classifier>
+		</dependency> -->
+		<!-- <dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-graphics </artifactId>
+			<version>19</version>
+			<classifier>mac</classifier>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-graphics</artifactId>
 			<version>19</version>
-		</dependency>
+			<classifier>mac-aarch64</classifier>
+		</dependency> -->
 
 		<!-- JUnit 5 -->
 		<dependency>
@@ -41,14 +62,44 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.3.0</version>
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>chinesecheckers.BoardApp</mainClass>
+							<addClasspath>true</addClasspath>
+							<mainClass>chinesecheckers.Main</mainClass>
 						</manifest>
 					</archive>
+					<resources>
+						<resource>
+							<directory>src/main/resources</directory>
+							<includes>
+								<include>**/*.fxml</include>
+								<include>**/*.chc</include>
+							</includes>
+						</resource>
+					</resources>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.4.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>chinesecheckers.Main</mainClass>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

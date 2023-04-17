@@ -2,10 +2,10 @@ package chinesecheckers;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import javafx.application.Platform;
+// import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 
-import org.junit.jupiter.api.BeforeAll;
+// import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
