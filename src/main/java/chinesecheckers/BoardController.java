@@ -40,7 +40,7 @@ public class BoardController {
         setupClickHandler(highlightMoves);
         setupClickHandler(enforceMoves);
         createHoleObjects();
-        //loadStartBoard();
+        loadStartBoard();
         load.setOnAction((event) -> {
             FileManager.load(FileManager.selectorWindow("Open file", false));
         });
