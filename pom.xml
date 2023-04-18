@@ -23,7 +23,7 @@
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-graphics </artifactId>
 			<version>19</version>
-			<classifier>mac</classifier>
+			<!-- <classifier>mac</classifier> -->
 			<!-- win, linux, mac, mac-aarch64 -->
 		</dependency>
 
